@@ -1,0 +1,111 @@
+/* frontend/src/styles/SignupRole.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 1rem;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.card:hover {
+  background-color: #f9fafb;
+  border-color: #a5b4fc;
+}
+
+.cardActive {
+  border-color: #4f46e5; /* indigo-600 */
+  background-color: #eef2ff; /* indigo-50 */
+}
+
+.iconBox {
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardActive .iconBox {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.checkIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: #4f46e5;
+}
+
+.continueButton {
+  width: 100%;
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.875rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(199, 210, 254, 0.5);
+  transition: all 0.2s;
+}
+
+.continueButton:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.backButton:hover {
+  color: #4b5563;
+}
