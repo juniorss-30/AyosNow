@@ -3,7 +3,7 @@ import { User, Briefcase, CheckCircle, ArrowRight } from 'lucide-react';
 import styles from '../styles/SignupRole.module.css';
 import loginStyles from '../styles/Login.module.css';
 
-export default function SignupRole({ onLoginClick }) {
+export default function SignupRole({ onLoginClick, setView, setUser }) {
   const [role, setRole] = useState('CUSTOMER');
   const [step, setStep] = useState(1);
   const [name, setName] = useState('');
@@ -22,12 +22,14 @@ export default function SignupRole({ onLoginClick }) {
       });
 
       if (res.ok) {
+        const user = await res.json(); // backend must return created user
         alert('User registered successfully!');
-        setStep(1);
-        setName('');
-        setEmail('');
-        setPassword('');
-        setSkill('');
+        setUser(user);
+
+        // Redirect
+        if (user.role === 'WORKER') setView('WORKER_DASHBOARD');
+        else alert('Customer dashboard not implemented.');
+
       } else {
         const error = await res.text();
         alert('Registration failed: ' + error);

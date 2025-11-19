@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, ArrowRight } from 'lucide-react';
-import styles from '../styles/Login.module.css'; // Import CSS Module
+import styles from '../styles/Login.module.css';
 import axios from 'axios';
 
-export default function Login({ onRegisterClick }) {
+export default function Login({ onRegisterClick, setView, setUser }) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const payload = { email, password };
       const response = await axios.post('http://localhost:8080/api/auth/login', payload);
       const user = response.data;
 
       alert(`Welcome, ${user.name}!`);
-      // You can redirect the user or save login info in localStorage
-      console.log('Logged in user:', user);
+      setUser(user);
+
+      // Redirect based on role
+      if (user.role === 'WORKER') {
+        setView('WORKER_DASHBOARD');
+      } else {
+        alert('Customer dashboard not implemented yet.');
+      }
 
     } catch (err) {
       console.error(err);
@@ -68,15 +73,6 @@ export default function Login({ onRegisterClick }) {
         Sign In
         <ArrowRight size={20} />
       </button>
-
-      <div className={styles.divider}>
-        <span>or continue with</span>
-      </div>
-
-      <div className={styles.socialGrid}>
-        <button className={styles.socialButton}>Google</button>
-        <button className={styles.socialButton}>Facebook</button>
-      </div>
 
       <p className={styles.footerText}>
         Don't have an account?{' '}
