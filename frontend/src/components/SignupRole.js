@@ -12,7 +12,7 @@ export default function SignupRole({ onLoginClick, setView, setUser }) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [skill, setSkill] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Independent toggle
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleRegister = async () => {
     if (password !== confirmPassword) {
@@ -40,8 +40,12 @@ export default function SignupRole({ onLoginClick, setView, setUser }) {
         alert('User registered successfully!');
         setUser(user);
 
-        if (user.role === 'WORKER') setView('WORKER_DASHBOARD');
-        else alert('Customer dashboard not implemented.');
+        // Navigate based on role
+        if (user.role === 'WORKER') {
+          setView('WORKER_DASHBOARD');
+        } else if (user.role === 'CUSTOMER') {
+          setView('USER_DASHBOARD');
+        }
       } else {
         const error = await res.text();
         alert('Registration failed: ' + error);
@@ -56,12 +60,7 @@ export default function SignupRole({ onLoginClick, setView, setUser }) {
   if (step === 1) {
     return (
       <div className={styles.container}>
-        {/* Back to Log In on top */}
-        <button
-          type="button"
-          onClick={onLoginClick}
-          className={styles.backButton}
-        >
+        <button type="button" onClick={onLoginClick} className={styles.backButton}>
           &larr; Back to Log In
         </button>
 
@@ -104,7 +103,6 @@ export default function SignupRole({ onLoginClick, setView, setUser }) {
       className={styles.container}
       onSubmit={(e) => { e.preventDefault(); handleRegister(); }}
     >
-      {/* Top Back button */}
       <button type="button" onClick={() => setStep(1)} className={styles.backButton}>
         &larr; Back to role selection
       </button>
@@ -196,7 +194,6 @@ export default function SignupRole({ onLoginClick, setView, setUser }) {
         Create Account
       </button>
 
-      {/* Footer: Already have an account? Log in */}
       <p className={loginStyles.footerText}>
         Already have an account?{' '}
         <button onClick={onLoginClick} className={loginStyles.link}>
