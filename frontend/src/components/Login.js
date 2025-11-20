@@ -34,7 +34,7 @@ export default function Login({ onRegisterClick, setView, setUser }) {
   return (
     <form className={styles.formContainer} onSubmit={handleLogin}>
       <div className={styles.inputGroup}>
-        <label className={styles.label}>Email Address</label>
+        <label className={styles.label}>Email</label>
         <div className={styles.inputWrapper}>
           <input 
             type="email" 
