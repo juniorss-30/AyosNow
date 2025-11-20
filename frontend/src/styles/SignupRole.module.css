@@ -1,4 +1,5 @@
-/* frontend/src/styles/SignupRole.module.css */
+/* Containers */
+.formContainer,
 .container {
   display: flex;
   flex-direction: column;
@@ -6,6 +7,119 @@
   animation: fadeIn 0.5s ease-out;
 }
 
+/* Input Groups */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+}
+
+/* Input wrapper to hold icon */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 3rem; /* space for icon */
+  background-color: #f9fafb; /* gray-50 */
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 0.75rem; /* rounded-xl */
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  background-color: #ffffff;
+  border-color: #6366f1; /* indigo-500 */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Eye toggle button */
+.iconButton {
+  position: absolute;
+  top: 50%;          /* vertically center */
+  right: 0.75rem;    /* slightly away from edge */
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Submit / Continue Buttons */
+.submitButton,
+.continueButton {
+  width: 100%;
+  background-color: #4f46e5; /* indigo-600 */
+  color: white;
+  padding: 0.875rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(199, 210, 254, 0.5);
+  transition: all 0.2s;
+}
+
+.submitButton:hover,
+.continueButton:hover {
+  background-color: #4338ca; /* indigo-700 */
+  transform: translateY(-2px);
+}
+
+/* Footer Text */
+.footerText {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 1rem;
+}
+
+.link {
+  color: #4f46e5;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Back Button */
+.backButton {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.backButton:hover {
+  color: #4b5563;
+}
+
+/* Role Selection Cards */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -71,41 +185,8 @@
   color: #4f46e5;
 }
 
-.continueButton {
-  width: 100%;
-  background-color: #4f46e5;
-  color: white;
-  padding: 0.875rem;
-  border-radius: 0.75rem;
-  font-weight: 700;
-  font-size: 1.125rem;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(199, 210, 254, 0.5);
-  transition: all 0.2s;
-}
-
-.continueButton:hover {
-  background-color: #4338ca;
-  transform: translateY(-2px);
-}
-
-.backButton {
-  background: none;
-  border: none;
-  color: #9ca3af;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
-}
-
-.backButton:hover {
-  color: #4b5563;
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -87,11 +87,11 @@ export default function App() {
               <Star fill="currentColor" color="#1e1b4b" />
               <div>
                 <div style={{ fontWeight: 'bold' }}>4.9/5 Rating</div>
-                <div style={{ fontSize: '0.8rem', opacity: 0.8 }}>Trusted by 10k+ users</div>
+                <div style={{ fontSize: '0.8rem', opacity: 0.8 }}>Trusted by 500 users</div>
               </div>
             </div>
           </div>
-          <div style={{ zIndex: 10, opacity: 0.7 }}>&copy; 2024 AyosNow Inc.</div>
+          <div style={{ zIndex: 10, opacity: 0.7 }}>&copy; 2025 AyosNow Inc.</div>
         </div>
       )}
 
